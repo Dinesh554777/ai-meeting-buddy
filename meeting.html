@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AI Meeting Buddy – Meeting Room</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header>
+    <h1>Meeting Room</h1>
+    <a href="index.html" class="btn">Back to Dashboard</a>
+  </header>
+
+  <div class="meeting-grid">
+    <!-- Video / Call embed (swap src for your video-service) -->
+    <div class="video-container">
+      <iframe
+        src="https://meet.jit.si/your-room-id"
+        allow="camera; microphone; autoplay"
+        class="video-frame">
+      </iframe>
+    </div>
+
+    <!-- Sidebar panels -->
+    <aside class="sidebar">
+      <nav class="tabs">
+        <button data-tab="agenda" class="active">Agenda</button>
+        <button data-tab="transcript">Transcript</button>
+        <button data-tab="reminders">Reminders</button>
+        <button data-tab="trust">Trust Score</button>
+        <button data-tab="voice">Voice Memos</button>
+      </nav>
+
+      <div class="tab-contents">
+        <div id="agenda" class="tab-content active">
+          <ul id="agenda-list"></ul>
+        </div>
+        <div id="transcript" class="tab-content">
+          <div id="transcript-log"></div>
+        </div>
+        <div id="reminders" class="tab-content">
+          <ul id="reminders-list"></ul>
+          <input id="new-reminder" placeholder="New follow-up…" />
+          <button id="add-reminder">Add</button>
+        </div>
+        <div id="trust" class="tab-content">
+          <p>Trust Score: <span id="trust-value">–</span>%</p>
+        </div>
+        <div id="voice" class="tab-content">
+          <button id="start-record">🎙️ Record Memo</button>
+          <ul id="voice-memos"></ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

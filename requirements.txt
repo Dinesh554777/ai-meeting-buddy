@@ -1,0 +1,4 @@
+Flask==2.2.5
+Flask-Cors==3.0.10
+pandas==2.0.1
+cryptography>=38.0.0

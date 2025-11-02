@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Meeting Buddy</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --teal: #14B8A6;
+      --green: #10B981;
+      --orange: #F97316;
+      --blue: #3B82F6;
+      --gray-light: #f5f5f5;
+      --gray-dark: #333;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-dark);
+      line-height: 1.6;
+    }
+    a { text-decoration:none; color:inherit; }
+    .container { max-width:1200px; margin:0 auto; padding:0 1rem; }
+
+    /* Header */
+    header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 0;
+    }
+    .logo { font-weight:700; font-size:1.5rem; color:var(--teal); }
+
+    /* Hero */
+    .hero {
+      display:flex; align-items:center; justify-content:space-between;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      color:#fff; padding:4rem 1rem;
+      border-radius:0 0 50px 50px;
+    }
+    .hero-text h1 { font-size:3rem; margin-bottom:1rem; }
+    .hero-text p { font-size:1.25rem; margin-bottom:2rem; }
+    .btn {
+      display:inline-block; padding:.75rem 1.5rem;
+      border-radius:4px; font-weight:600;
+      transition:transform .2s, background .2s;
+    }
+    .btn-demo {
+      background: var(--orange); color:#fff;
+    }
+    .btn-demo:hover { background: #d65a10; transform:translateY(-2px); }
+
+    .hero-visual {
+      width:45%;
+      background:rgba(255,255,255,.15);
+      padding:2rem; border-radius:12px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-visual img { width:100%; animation: float 6s ease-in-out infinite; }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Sections */
+    section { padding:4rem 0; }
+    h2 { text-align:center; color:var(--teal); margin-bottom:2rem; }
+
+    /* Problem */
+    .problem-cards {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1.5rem;
+    }
+    .problem-card {
+      background: var(--gray-light); padding:1.5rem; border-radius:8px;
+      text-align:center; transition:transform .2s;
+    }
+    .problem-card:hover { transform:translateY(-5px); }
+    .problem-card h3 { margin-bottom:.75rem; color:var(--orange); }
+
+    /* Solution */
+    .solution-cards {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1.5rem;
+    }
+    .solution-card {
+      background:#fff; padding:1.5rem; border-radius:8px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      transition:box-shadow .2s, transform .2s;
+    }
+    .solution-card:hover {
+      box-shadow:0 6px 18px rgba(0,0,0,0.1);
+      transform:translateY(-4px);
+    }
+    .solution-card h3 { margin-bottom:.5rem; color:var(--green); }
+
+    /* Architecture */
+    .arch-diagram { text-align:center; }
+    .arch-diagram img { max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+
+    /* Demo */
+    .demo-video {
+      text-align:center; margin-bottom:2rem;
+    }
+    .demo-video iframe {
+      width:100%; max-width:720px; aspect-ratio:16/9;
+      border:none; border-radius:8px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Contact */
+    .contact-form {
+      max-width:500px; margin:0 auto;
+      background:var(--gray-light); padding:2rem; border-radius:8px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width:100%; padding:.75rem; margin-bottom:1rem;
+      border:1px solid #ddd; border-radius:4px;
+      transition:border-color .2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color:var(--teal); outline:none;
+    }
+    .contact-form button {
+      background: var(--teal); color:#fff; border:none;
+      padding:.75rem 1.5rem; border-radius:4px;
+      cursor:pointer; transition:background .2s;
+    }
+    .contact-form button:hover { background: #0f9e93; }
+
+    /* Footer */
+    footer {
+      text-align:center; padding:2rem 0;
+      background: var(--gray-light);
+    }
+
+    /* Mobile */
+    @media(max-width:768px) {
+      .hero { flex-direction:column; text-align:center; }
+      .hero-visual { width:80%; margin-top:2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">AI Meeting Buddy</div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>AI Meeting Buddy</h1>
+        <p>Smarter Meetings. Stronger Follow-ups.</p>
+        <a href="#demo" class="btn btn-demo">Try the Demo</a>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/hero-animation.svg" alt="Floating chat bubbles"/>
+      </div>
+    </section>
+
+    <section id="problem">
+      <h2>❓ The Problem</h2>
+      <div class="problem-cards">
+        <div class="problem-card">
+          <h3>Time Zone Conflict</h3>
+          <p>Never juggle multiple clocks again.</p>
+        </div>
+        <div class="problem-card">
+          <h3>Forgotten Discussions</h3>
+          <p>Key points slip through the cracks.</p>
+        </div>
+        <div class="problem-card">
+          <h3>Unclear Agendas</h3>
+          <p>Meetings wander off-topic.</p>
+        </div>
+        <div class="problem-card">
+          <h3>Missed Follow-Ups</h3>
+          <p>Action items fall through.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution">
+      <h2>💡 Our Solution</h2>
+      <div class="solution-cards">
+        <div class="solution-card">
+          <h3>Smart Scheduling</h3>
+          <p>Auto-sync your calendars for perfect slots.</p>
+        </div>
+        <div class="solution-card">
+          <h3>Personalized Agendas</h3>
+          <p>AI-driven agendas tailored to your team.</p>
+        </div>
+        <div class="solution-card">
+          <h3>Live Transcription</h3>
+          <p>Accurate transcripts with action-item tagging.</p>
+        </div>
+        <div class="solution-card">
+          <h3>Gamified Follow-Ups</h3>
+          <p>Earn points when tasks get done.</p>
+        </div>
+        <div class="solution-card">
+          <h3>Trust Score Meter</h3>
+          <p>Visualize team reliability over time.</p>
+        </div>
+        <div class="solution-card">
+          <h3>Voice Memo Support</h3>
+          <p>Capture quick thoughts on the go.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <h2>⚙️ Technical Architecture</h2>
+      <div class="arch-diagram">
+        <img src="assets/architecture-diagram.svg" alt="System architecture"/>
+      </div>
+    </section>
+
+    <section id="demo">
+      <h2>📸 Demo</h2>
+      <div class="demo-video">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>📞 Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required/>
+        <input type="email" name="email" placeholder="Your Email" required/>
+        <textarea name="message" rows="4" placeholder="Message or Beta Request" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      © 2025 AI Meeting Buddy. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
